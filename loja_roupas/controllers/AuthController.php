@@ -30,17 +30,15 @@ $email = $_POST['email'] ?? '';
     // LOGIN COM SUCESSO!
     // ==========================================
 
-    // 1. Garante que a sessão está iniciada
+    // sessao iniciada
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
 
-    // 2. SALVANDO COM O NOME CORRETO DA SUA TABELA: id_usuario
     $_SESSION['usuario_id'] = $user['id_usuario']; 
     $_SESSION['usuario_nome'] = $user['nome'];
     $_SESSION['perfil'] = $user['perfil']; // admin ou outro
 
-    // 3. Redireciona para o Dashboard pelo controlador
     header("Location: index.php?controller=auth&action=dashboard");
     exit;
 }

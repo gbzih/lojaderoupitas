@@ -2,9 +2,6 @@
 
 class EntradaController
 {
-    /**
-     * Verifica se o usuário está logado antes de carregar a página
-     */
     private function check()
     {
         if (!isset($_SESSION['usuario_id'])) {

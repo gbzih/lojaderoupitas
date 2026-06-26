@@ -28,7 +28,7 @@ Logado como <strong><?php echo htmlspecialchars($nome); ?></strong>
 </div>
 </div>
 <div class="card">
-<h2 style="margin-top:0; color:black;">Bem-vindo(a), <?php echo htmlspecialchars($nome); ?>!</h2>
+<h2 style="margin-top:0;">Bem-vindo(a), <?php echo htmlspecialchars($nome); ?>!</h2>
 <p style="color:var(--muted); margin-top:6px;">
 Escolha um módulo para continuar.
 </p>

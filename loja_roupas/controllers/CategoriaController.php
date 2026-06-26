@@ -8,7 +8,6 @@ $this->check();
 $this->onlyAdmin();
 $categoriaModel = new Categoria();
 $categorias = $categoriaModel->listarTodas();
-// se veio ?id=..., entra em modo edição
 $editar = null;
 if (isset($_GET['id'])) {
 $editar = $categoriaModel->buscarPorId((int)$_GET['id']);

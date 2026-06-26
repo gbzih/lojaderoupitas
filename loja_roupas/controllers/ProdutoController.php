@@ -106,7 +106,6 @@ $destDir = __DIR__ . '/../public/uploads/produtos/';
 if (!is_dir($destDir)) {
 mkdir($destDir, 0777, true);
 }
-// remove versões antigas (se trocar)
 foreach (['jpg','png','webp'] as $e) {
 $old = $destDir . $produtoId . '.' . $e;
 if (file_exists($old)) unlink($old);
@@ -115,7 +114,6 @@ $dest = $destDir . $produtoId . '.' . $ext;
 move_uploaded_file($tmp, $dest);
 }
 
-// ✅ NOVO MÉTODO DELETAR IMAGEM - ADICIONE AQUI
 private function deletarImagemDoProduto(int $produtoId): void
 {
 $destDir = __DIR__ . '/../public/uploads/produtos/';
