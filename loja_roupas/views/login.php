@@ -22,13 +22,14 @@
             <label>Senha</label>
             <input type="password" name="senha" required autocomplete="current-password">
            
-            <div style="margin-top:16px; display:flex; justify-content:flex-end; align-items: center;">
-                <button class="btn" type="submit">Entrar</button>
-               
-                <a href="index.php?controller=usuario&action=create" class="btn" style="margin: 3px; text-decoration: none; text-align: center; display: inline-block;">
-                    Cadastrar
-                </a>
-            </div>
+            <div class="actions-login">
+            <a href="index.php?controller=usuario&action=create" class="btn">
+            Cadastrar
+            </a>
+            <button class="btn" type="submit">
+             Entrar
+    </button>
+</div>
         </form>
     </div>
 </div>

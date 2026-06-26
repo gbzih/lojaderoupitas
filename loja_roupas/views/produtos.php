@@ -28,7 +28,7 @@ function imagemProdutoUrl(int $produtoId): string
         </div>
         <div class="user">
     Olá, <strong><?= htmlspecialchars($_SESSION['usuario_nome'] ?? 'Usuário') ?></strong>
-    <a class="btn btn-ghost" href="index.php?controller=auth&action=logout">Sair</a>
+    <a href="index.php?controller=auth&action=logout">Sair</a>
 </div>
     </div>
 </div>
@@ -141,7 +141,7 @@ function imagemProdutoUrl(int $produtoId): string
                    href="index.php?controller=produto&action=toggle&id=<?= (int)$p['id_produto'] ?>&ativo=1">Ativar</a>
             <?php endif; ?>
             
-            <a class="btn btn-danger"
+            <a class="btn btn-danger" style="color: red;"
                href="index.php?controller=produto&action=deletar&id=<?= (int)$p['id_produto'] ?>"
                onclick="return confirm('⚠️ DELETAR permanentemente? Não há volta!')">Excluir</a>
         </div>

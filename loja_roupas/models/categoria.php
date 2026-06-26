@@ -19,7 +19,6 @@ class Categoria
 
     public function listarAtivas(): array
     {
-        // Como não existe a coluna ativo, esse método agora faz o mesmo que o listarTodas
         $sql = "SELECT id_categoria, nome FROM categoria ORDER BY nome";
         return $this->conn->query($sql)->fetchAll();
     }

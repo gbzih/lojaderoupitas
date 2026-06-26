@@ -6,7 +6,7 @@ $perfil = $_SESSION['perfil'] ?? 'vendedor';
 <html lang="pt-br">
 <head>
 <meta charset="utf-8">
-<title>Dashboard - Loja Cosplay</title>
+<title>Loja Nerdis</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="public/assets/css/style.css">
 </head>

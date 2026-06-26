@@ -1,15 +1,11 @@
 body{
     margin:0;
     min-height:100vh;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     overflow:hidden;
-
     font-family:Arial, sans-serif;
-
     color: rgb(75, 7, 107);
 
     position:relative;
@@ -57,31 +53,27 @@ a{
   margin:0 auto;
   padding:100px 0;
 }
-.bem{
-  text-align: center;
-  color: rgb(75, 7, 107);
-}
 
 .card{
   background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  border:1px solid rgba(255,255,255,0.15);
-  border-radius: 24px;
-  box-shadow:var(--shadow);
-  padding:22px;
-}
-
-.card{
-  background: rgba(122, 115, 115, 0.534);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 
-  border:1px solid rgba(122, 115, 115, 0.534);
+  border:1px solid rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   box-shadow:var(--shadow);
-  padding:22px;
+  padding:20px;
+}
+
+.card{
+  background: rgba(192, 187, 187, 0.534);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border:1px solid rgba(0, 0, 0, 0.534);
+  border-radius: 20px;
+  box-shadow:var(--shadow);
+  padding:20px;
 }
 input{
   width:100%;
@@ -92,7 +84,7 @@ input{
 
   background: rgba(0,0,0,0.25);
 
-  color:white;
+  color:rgb(255, 255, 255);
   outline:none;
 }
  /* ===============================
@@ -165,8 +157,7 @@ label{
   width:100%;
   padding:12px;
   border-radius:14px;
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(0,0,0,.25);
+  background-color: white;
   color:var(--txt);
   outline:none;
 }
@@ -179,19 +170,28 @@ label{
  /* ===============================
    BOTÕES
    =============================== */
+
+  .actions-login{
+    margin-top:16px;
+    display:flex;
+    justify-content:flex-end;
+    gap:15px; /* Espaço entre os botões */
+    align-items:center;
+}
 .btn{
-  display:inline-flex;
-  align-items:center;
+  display:flex;
   justify-content:center;
-  padding:12px 18px;
+  align-items:center;
+  display:inline-flex;
+  padding: 20px 18px;
   border-radius:14px;
   border:0;
   cursor:pointer;
   font-weight:700;
   color: rgb(75, 7, 107);
 
-   background:linear-gradient(90deg, var(--neon2), var(--neon1));
-  box-shadow:0 10px 30px rgba(213, 75, 255, 0.18);
+  background-color: white;
+  box-shadow:0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
  .btn:hover{
@@ -199,10 +199,10 @@ label{
 }
 
  .btn-secondary{
-  background:linear-gradient(90deg, rgba(255,255,255,.18), rgba(255,255,255,.06));
-  color:var(--txt);
+  background:linear-gradient(90deg, rgba(255, 0, 0, 0.18), rgba(253, 7, 7, 0.06));
   border:1px solid rgba(255, 255, 255, 0.12);
 }
+
 
  /* ===============================
    NAVEGAÇÃO
@@ -315,9 +315,11 @@ body {
 }
 
 .user {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  background-color: white;
+  border:1px solid rgba(170, 160, 160, 0.15);
+  border-radius: 24px;
+  box-shadow:var(--shadow);
+  padding:22px;
 }
 
 @media (max-width: 900px) {
