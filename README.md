@@ -23,4 +23,3 @@ Um sistema web completo, responsivo e seguro para o gerenciamento de inventário
 * **Backend:** PHP
 * **Banco de Dados:** MySQL, HeidiSQL
 * **Frontend:** HTML, CSS
-* **Arquitetura:**
