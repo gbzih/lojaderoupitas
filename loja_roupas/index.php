@@ -4,7 +4,7 @@ require_once __DIR__ . '/config/db.php';
 Database::getConnection();
 
 
-// Roteamento simples via GET
+// roteamento simples via GET
 $controller = $_GET['controller'] ?? 'auth';
 $action = $_GET['action'] ?? 'form';
 
@@ -29,13 +29,13 @@ switch ($controller) {
         $c = new EntradaController();
         break;
 
-
+    //ainda nao foi apresentado
     case 'venda':
         require_once __DIR__ . '/controllers/VendaController.php';
         $c = new VendaController();
         break;
 
-
+    //ainda nao foi apresentado
     case 'relatorio':
         require_once __DIR__ . '/controllers/RelatorioController.php';
         $c = new RelatorioController();

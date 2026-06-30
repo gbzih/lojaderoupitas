@@ -18,33 +18,66 @@ require_once __DIR__ . '/../views/produtos.php';
 }
 public function salvar(): void
 {
-$this->check();
-$this->onlyAdmin();
-$id = (int)($_POST['id'] ?? 0);
-$categoriaId = (int)($_POST['categoria_id'] ?? 0);
-$nome = trim($_POST['nome'] ?? '');
-$descricao = trim($_POST['descricao'] ?? '');
-$descricao = $descricao === '' ? null : $descricao;
-if ($categoriaId <= 0 || $nome === '') {
-die("Dados inválidos.");
-}
-$produtoModel = new Produto();
-if ($id > 0) {
-// Atualiza produto
-$produtoModel->atualizar($id, $categoriaId, $nome, $descricao);
-$this->salvarImagemDoProduto($id); // upload opcional
-} else {
-// Insere produto e pega ID para nomear a imagem
-$novoId = $produtoModel->inserir($categoriaId, $nome, $descricao);
-$this->salvarImagemDoProduto($novoId); // upload opcional
-}
-header("Location: index.php?controller=produto&action=index");
-exit;
-}
-public function toggle()
-{
-    $this->check(); // 🔒 Adicionado para garantir que a sessão do usuário está ativa
+    $this->check();
+    // $this->onlyAdmin(); // 👈 Deixe comentado para o Vendedor conseguir salvar também!
     
+    $id = (int)($_POST['id'] ?? 0);
+    $categoriaId = (int)($_POST['categoria_id'] ?? 0);
+    $nome = trim($_POST['nome'] ?? '');
+    $descricao = trim($_POST['descricao'] ?? '');
+    $descricao = $descricao === '' ? null : $descricao;
+    $preco = (float)($_POST['preco'] ?? 0.00);
+    $estoque = (int)($_POST['estoque'] ?? 0);
+
+    if ($categoriaId <= 0 || $nome === '') {
+        die("Dados inválidos.");
+    }
+
+    $produtoModel = new Produto();
+    
+    if ($id > 0) {
+        $produtoModel->atualizar($id, $categoriaId, $nome, $descricao, $preco, $estoque);
+        $this->salvarImagemDoProduto($id); 
+    } else {
+        $novoId = $produtoModel->inserir($categoriaId, $nome, $descricao, $preco, $estoque);
+        $this->salvarImagemDoProduto($novoId); 
+    }
+
+    header("Location: index.php?controller=produto&action=index");
+    exit;
+}
+
+//  NOVO MÉTODO DELETAR - ADICIONE AQUI
+public function deletar(): void
+{
+    $this->check();
+    if (strtolower($_SESSION['perfil'] ?? '') !== 'admin') {
+        die("Acesso negado. Apenas administradores podem excluir produtos.");
+    }
+    
+    $id = (int)($_GET['id'] ?? 0);
+
+    if ($id <= 0) die("ID inválido.");
+
+    $produtoModel = new Produto();
+    $produto = $produtoModel->buscarPorId($id);
+
+    if (!$produto) die("Produto não encontrado.");
+
+    // Deleta a imagem do arquivo
+    $this->deletarImagemDoProduto($id);
+
+    // Deleta do banco
+    $produtoModel->deletar($id);
+
+    header("Location: index.php?controller=produto&action=index");
+    exit;
+}
+public function toggle(): void
+{
+    $this->check(); 
+    
+    // Pegando os dados via GET que vêm do link da tabela
     $id = (int)($_GET['id'] ?? 0);
     $ativo = (int)($_GET['ativo'] ?? 1);
 
@@ -57,30 +90,20 @@ public function toggle()
     exit;
 }
 
-//  NOVO MÉTODO DELETAR - ADICIONE AQUI
-public function deletar(): void
+public function removerImagem(): void
 {
-$this->check();
-$this->onlyAdmin();
-$id = (int)($_GET['id'] ?? 0);
-
-if ($id <= 0) die("ID inválido.");
-
-$produtoModel = new Produto();
-$produto = $produtoModel->buscarPorId($id);
-
-if (!$produto) die("Produto não encontrado.");
-
-// Deleta a imagem do arquivo
-$this->deletarImagemDoProduto($id);
-
-// Deleta do banco
-$produtoModel->deletar($id);
-
-header("Location: index.php?controller=produto&action=index");
-exit;
+    $this->check();
+    
+    $id = (int)($_GET['id'] ?? 0);
+    if ($id > 0) {
+        // Usa o método privado que você já tem para apagar o arquivo da pasta
+        $this->deletarImagemDoProduto($id);
+    }
+    
+    // Redireciona de volta abrindo o mesmo produto em modo de edição
+    header("Location: index.php?controller=produto&action=index&id=" . $id);
+    exit;
 }
-
 // -------------------------
 // Upload (POO + seguro)
 // -------------------------

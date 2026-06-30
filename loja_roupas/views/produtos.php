@@ -22,7 +22,7 @@ function imagemProdutoUrl(int $produtoId): string
 <body>
 <div class="header">
     <div class="container header-inner">
-        <div>
+        <div class="cabecaproduto">
             <strong>Loja Nerdis</strong>
             <span class="badge">Produtos</span>
         </div>
@@ -37,20 +37,20 @@ function imagemProdutoUrl(int $produtoId): string
     <div class="card">
         <h2><?= $editar ? "Editar Produto #".(int)$editar['id_produto'] : "Cadastrar Produto" ?></h2>
         <form method="post" action="index.php?controller=produto&action=salvar" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?= $editar ? (int)$editar['id_produto'] : 0 ?>">
+            <input type="hidden" name="id" value="<?= $editar ? (int)$editar['id_produto'] : 0 ?>">
             
             <div class="form-group">
-    <label>Categoria</label>
-    <select class="input" name="categoria_id" required>
-        <option value="">Selecione...</option>
-        <?php foreach ($categorias as $c): ?>
-            <option value="<?= (int)$c['id_categoria'] ?>"
-                <?= $editar && (int)$editar['categoria_id'] === (int)$c['id_categoria'] ? 'selected' : '' ?>>
-                <?= htmlspecialchars($c['nome']) ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
-</div>
+                <label>Categoria</label>
+                <select class="input" name="categoria_id" required>
+                    <option value="">Selecione...</option>
+                    <?php foreach ($categorias as $c): ?>
+                        <option value="<?= (int)$c['id_categoria'] ?>"
+                            <?= $editar && (int)$editar['categoria_id'] === (int)$c['id_categoria'] ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($c['nome']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
             
             <div class="form-group">
                 <label>Nome</label>
@@ -78,7 +78,32 @@ function imagemProdutoUrl(int $produtoId): string
             <div class="form-group">
                 <label>Imagem do produto (opcional)</label>
                 <input class="input" type="file" name="imagem" accept="image/png, image/jpeg, image/webp">
-                <small class="muted">Formatos: JPG, PNG, WEBP (até 2MB). Salva como ID do produto.</small>
+                <small class="muted" style="display: block; margin-bottom: 5px;">Formatos: JPG, PNG, WEBP (até 2MB). Salva como ID do produto.</small>
+                
+                <?php if (isset($editar) && $editar): ?>
+                    <?php
+                    // Verifica se existe alguma imagem física salva para este ID
+                    $caminhoUploads = __DIR__ . '/../public/uploads/produtos/';
+                    $temImagem = false;
+                    foreach (['jpg', 'png', 'webp'] as $ext) {
+                        if (file_exists($caminhoUploads . $editar['id_produto'] . '.' . $ext)) {
+                            $temImagem = true;
+                            break;
+                        }
+                    }
+                    ?>
+                    
+                    <?php if ($temImagem): ?>
+                        <div style="margin-top: 12px; margin-bottom: 5px;">
+                            <a class="btn" 
+                               style="color: #ff4d4d; border: 1px solid rgba(255, 77, 77, 0.4); background: rgba(255, 77, 77, 0.1); width: 100%; display: inline-flex; justify-content: center; align-items: center; box-sizing: border-box;" 
+                               href="index.php?controller=produto&action=removerImagem&id=<?= $editar['id_produto'] ?>"
+                               onclick="return confirm('Tem certeza que deseja apagar a imagem deste produto?');">
+                               🗑️ Deletar Imagem Atual
+                            </a>
+                        </div>
+                    <?php endif; ?>
+                <?php endif; ?>
             </div>
             
             <div class="actions">
@@ -104,50 +129,56 @@ function imagemProdutoUrl(int $produtoId): string
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($produtos as $p): ?>
-<tr>
-    <td>
-        <img class="thumb" src="<?= imagemProdutoUrl((int)$p['id_produto']) ?>" alt="produto">
-    </td>
-    
-    <td>#<?= (int)$p['id_produto'] ?></td>
-    
-    <td><?= htmlspecialchars($p['nome']) ?></td>
-    
-    <td><?= htmlspecialchars($p['categoria_nome']) ?></td>
-    
-    <td>R$ <?= number_format((float)($p['preco'] ?? 0), 2, ',', '.') ?></td>
-    
-    <td><?= (int)($p['estoque'] ?? 0) ?> un</td>
-    
-    <td>
-        <?php if (isset($p['ativo']) && (int)$p['ativo'] === 1): ?>
-            <span class="tag ok">Ativo</span>
-        <?php else: ?>
-            <span class="tag off">Inativo</span>
-        <?php endif; ?>
-    </td>
-    
-    <td>
-        <div style="display: flex; flex-direction: column; gap: 4px;">
-            <a class="btn" href="index.php?controller=produto&action=index&id=<?= (int)$p['id_produto'] ?>">Editar</a>
-            
-            <?php if (isset($p['ativo']) && (int)$p['ativo'] === 1): ?>
-                <a class="btn btn-danger"
-                   href="index.php?controller=produto&action=toggle&id=<?= (int)$p['id_produto'] ?>&ativo=0"
-                   onclick="return confirm('Inativar este produto?')">Inativar</a>
-            <?php else: ?>
-                <a class="btn btn-success"
-                   href="index.php?controller=produto&action=toggle&id=<?= (int)$p['id_produto'] ?>&ativo=1">Ativar</a>
-            <?php endif; ?>
-            
-            <a class="btn btn-danger" style="color: red;"
-               href="index.php?controller=produto&action=deletar&id=<?= (int)$p['id_produto'] ?>"
-               onclick="return confirm('⚠️ DELETAR permanentemente? Não há volta!')">Excluir</a>
-        </div>
-    </td>
-</tr>
-<?php endforeach; ?>
+                <?php 
+                $posicao = 1; 
+                foreach ($produtos as $p): 
+                ?>
+                <tr>
+                    <td>
+                        <img class="thumb" src="<?= imagemProdutoUrl((int)$p['id_produto']) ?>" alt="produto">
+                    </td>
+                    
+                    <td>#<?= $posicao ?></td>
+                    
+                    <td><?= htmlspecialchars($p['nome']) ?></td>
+                    
+                    <td><?= htmlspecialchars($p['categoria_nome']) ?></td>
+                    
+                    <td>R$ <?= number_format((float)($p['preco'] ?? 0), 2, ',', '.') ?></td>
+                    
+                    <td><?= (int)($p['estoque'] ?? 0) ?> un</td>
+                    
+                    <td>
+                        <?php if (isset($p['ativo']) && (int)$p['ativo'] === 1): ?>
+                            <span class="tag ok">Ativo</span>
+                        <?php else: ?>
+                            <span class="tag off">Inativo</span>
+                        <?php endif; ?>
+                    </td>
+                    
+                    <td>
+                        <div style="display: flex; flex-direction: column; gap: 4px;">
+                            <a class="btn" href="index.php?controller=produto&action=index&id=<?= (int)$p['id_produto'] ?>">Editar</a>
+                            
+                            <?php if (isset($p['ativo']) && (int)$p['ativo'] === 1): ?>
+                                <a class="btn btn-danger"
+                                   href="index.php?controller=produto&action=toggle&id=<?= (int)$p['id_produto'] ?>&ativo=0"
+                                   onclick="return confirm('Inativar este produto?')">Inativar</a>
+                            <?php else: ?>
+                                <a class="btn btn-success"
+                                   href="index.php?controller=produto&action=toggle&id=<?= (int)$p['id_produto'] ?>&ativo=1">Ativar</a>
+                            <?php endif; ?>
+                            
+                            <a class="btn btn-danger" style="color: red;"
+                               href="index.php?controller=produto&action=deletar&id=<?= (int)$p['id_produto'] ?>"
+                               onclick="return confirm('⚠️ DELETAR permanentemente? Não há volta!')">Excluir</a>
+                        </div>
+                    </td>
+                </tr>
+                <?php 
+                $posicao++; 
+                endforeach; 
+                ?>
             </tbody>
         </table>
     </div>

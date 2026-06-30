@@ -37,8 +37,10 @@
       </div>
 
       <br>
-
-      <button type="submit">Cadastrar</button>
+      <div class="actions-login">
+        <button type="submit" class="btn">Cadastrar</button>
+        <a href="/loja_roupas/index.php?controller=auth&action=form" class="btn btn-secondary">Voltar</a>
+      </div>
 
     </form>
 

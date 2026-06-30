@@ -23,16 +23,12 @@
             <input type="password" name="senha" required autocomplete="current-password">
            
             <div class="actions-login">
-            <a href="index.php?controller=usuario&action=create" class="btn">
-            Cadastrar
-            </a>
-            <button class="btn" type="submit">
-             Entrar
-    </button>
-</div>
+                <a href="index.php?controller=usuario&action=create" class="btn2">Cadastrar</a>
+                
+                <button type="submit" class="btn">Entrar</button>
+            </div>
         </form>
     </div>
 </div>
 </body>
 </html>
-

@@ -51,7 +51,7 @@ a{
 .container{
   width:min(1100px, 92vw);
   margin:0 auto;
-  padding:100px 0;
+  padding:195px 0;
 }
 
 .card{
@@ -107,13 +107,20 @@ input{
   margin-top:2px;
   color:var(--muted);
 }
-.cop{
-  width:min(1100px, 92vw);
-  margin:0 auto;
-  padding:100px 0;
+/* Estilos específicos para a página de Cadastro de Vendedor */
+.cop {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
 
-  display:flex;
-  justify-content:center;
+/* Limita a largura máxima do card na página de cadastro */
+.cop > .card {
+    width: 100%;
+    max-width: 590px;
+    overflow: visible; /* Garante que os inputs arredondados renderizem bem */
 }
 
 
@@ -134,8 +141,7 @@ input{
   gap:10px;
   padding:10px 14px;
   border-radius:999px;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.10);
+  background-color: white;
   color:var(--muted);
 }
 
@@ -168,17 +174,39 @@ label{
 }
 
  /* ===============================
-   BOTÕES
+   BOTÕES        E           LOGIN
    =============================== */
-
-  .actions-login{
-    margin-top:16px;
-    display:flex;
-    justify-content:flex-end;
-    gap:15px; /* Espaço entre os botões */
-    align-items:center;
+.actions-login {
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-end; /* Padrão do login atual */
+    gap: 15px; 
+    align-items: center;
 }
-.btn{
+
+/* 🌟 Nova subclasse para reaproveitar no cadastro e centralizar */
+.actions-login.center {
+    justify-content: center;
+}
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 18px;
+  border-radius: 14px;
+  border: 0;
+  cursor: pointer;
+  color: rgb(75, 7, 107);
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+
+  /* 🌟 Garante que o <button> e o <a> fiquem IGUAIS em tamanho e fonte */
+  font-family: inherit; 
+  font-size: 13px;      
+  font-weight: 700;     
+}
+
+.btn2{
   display:flex;
   justify-content:center;
   align-items:center;
@@ -192,6 +220,7 @@ label{
 
   background-color: white;
   box-shadow:0 10px 30px rgba(0, 0, 0, 0.18);
+  
 }
 
  .btn:hover{
@@ -202,7 +231,6 @@ label{
   background:linear-gradient(90deg, rgba(255, 0, 0, 0.18), rgba(253, 7, 7, 0.06));
   border:1px solid rgba(255, 255, 255, 0.12);
 }
-
 
  /* ===============================
    NAVEGAÇÃO
@@ -254,6 +282,14 @@ label{
   margin-top:6px;
 }
 
+.abelha{
+  background-color: white;
+  border:1px solid rgba(170, 160, 160, 0.15);
+  border-radius: 24px;
+  box-shadow:var(--shadow);
+  padding:22px;
+}
+
  /* ===============================
    RESPONSIVO
    =============================== */
@@ -278,7 +314,7 @@ label{
 .muted { opacity: .8; font-size: 12px; }
 .grid { display: grid; grid-template-columns: 380px 1fr; gap: 16px; align-items: start; }
 .header-inner { display:flex; justify-content: space-between; align-items:center; }
-.badge { margin-left: 8px; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,.25); }
+.badge { margin-left: 8px; padding: 4px 10px; border-radius: 999px;}
 
 
 /* Ajuste para telas internas */
@@ -294,10 +330,26 @@ body {
   padding: 18px 0 !important;
 }
 
+/* 1. Força os dois cards a terem exatamente a mesma altura */
 .container.grid {
   width: min(1320px, 96vw) !important;
   padding: 36px 0 !important;
   grid-template-columns: minmax(320px, 420px) minmax(0, 1fr) !important;
+  align-items: stretch !important; /* 🌟 Faz o card da lista esticar e igualar com o cadastro */
+}
+
+/* 2. Controla o tamanho máximo e a rolagem interna da lista de produtos */
+.container.grid > .card:last-child {
+  height: 650px; /* Altura exata para casar e travar o tamanho junto com o cadastro */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 3. Faz a tabela rolar perfeitamente por dentro sem quebrar o card de fora */
+.container.grid > .card:last-child > .table {
+  flex: 1;
+  overflow-y: auto;
+  display: block; /* Permite que o bloco da tabela use a rolagem interna */
 }
 
 .table {
@@ -315,6 +367,14 @@ body {
 }
 
 .user {
+  background-color: white;
+  border:1px solid rgba(170, 160, 160, 0.15);
+  border-radius: 24px;
+  box-shadow:var(--shadow);
+  padding:22px;
+}
+
+.cabecaproduto{
   background-color: white;
   border:1px solid rgba(170, 160, 160, 0.15);
   border-radius: 24px;
