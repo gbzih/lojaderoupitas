@@ -16,16 +16,16 @@
         </div>
        
         <form method="post" action="index.php?controller=auth&action=login">
-            <label>E-mail</label>
+            <label style="color: black;">E-mail:</label>
             <input type="email" name="email" required autocomplete="username">
            
-            <label>Senha</label>
+            <label style="color: black;">Senha:</label>
             <input type="password" name="senha" required autocomplete="current-password">
            
             <div class="actions-login">
-                <a href="index.php?controller=usuario&action=create" class="btn2">Cadastrar</a>
+                <a style="color: black;" href="index.php?controller=usuario&action=create" class="btn2">Cadastrar</a>
                 
-                <button type="submit" class="btn">Entrar</button>
+                <button style="color: black;" type="submit" class="btn">Entrar</button>
             </div>
         </form>
     </div>

@@ -19,7 +19,7 @@ try {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="public/assets/css/style.css">
 </head>
-<body>
+<body class="bodydash">
 
 <div class="container">
 <div class="topbar">
@@ -29,10 +29,10 @@ try {
 <small>Painel do Sistema</small>
 </div>
 </div>
-<div class="pill">
-Logado como <strong><?= htmlspecialchars($_SESSION['usuario_nome'] ?? 'Usuário') ?></strong>
+<div style="color: black;" class="pill">
+Logado como <strong style="color: purple;"><?= htmlspecialchars($_SESSION['usuario_nome'] ?? 'Usuário') ?></strong>
 (<?php echo htmlspecialchars($perfil); ?>)
-• <a href="/loja_roupas/index.php?controller=auth&action=logout">Sair</a>
+• <a style="color: black;" href="/loja_roupas/index.php?controller=auth&action=logout">Sair</a>
 </div>
 </div>
 <div class="card">
@@ -42,29 +42,29 @@ Escolha um módulo para continuar.
 </p>
 <div class="nav">
 
-<a href="/loja_roupas/index.php?controller=produto&action=index">Produtos / Categorias</a>
-<a href="/loja_roupas/index.php?controller=entrada&action=index">Entradas</a>
-<a href="/loja_roupas/index.php?controller=venda&action=index">Vendas</a>
-<a href="/loja_roupas/index.php?controller=relatorio&action=index">Relatórios</a>
+<a style="color: black;" href="/loja_roupas/index.php?controller=produto&action=index">Produtos / Categorias</a>
+<a style="color: black;" href="/loja_roupas/index.php?controller=entrada&action=index">Entradas</a>
+<a style="color: black;" href="/loja_roupas/index.php?controller=venda&action=index">Vendas</a>
+<a style="color: black;" href="/loja_roupas/index.php?controller=relatorio&action=index">Relatórios</a>
 </div>
 
 <div class="kpis">
 <div class="kpi">
-<div class="label">Vendas (mês)</div>
-<div class="value">0</div>
+<div style="color: black;" class="label">Vendas (mês)</div>
+<div style="color: black;" class="value">0</div>
 </div>
 <div class="kpi">
-<div class="label">Entradas (mês)</div>
-<div class="value">0</div>
+<div style="color: black;" class="label">Entradas (mês)</div>
+<div style="color: black;" class="value">0</div>
 </div>
 <div class="kpi">
-<div class="label">Estoque baixo</div>
-<div class="value">0</div>
+<div style="color: black;" class="label">Estoque baixo</div>
+<div style="color: black;" class="value">0</div>
 </div>
 
 <div class="kpi">
-<div class="label">Produtos</div>
-<div class="value"><?= (int)$totalProdutos ?></div>
+<div style="color: black;" class="label">Produtos</div>
+<div style="color: black;" class="value"><?= (int)$totalProdutos ?></div>
 </div>
 </div>
 </div>

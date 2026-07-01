@@ -55,6 +55,4 @@ class Categoria
             ':nome' => $nome
         ]);
     }
-
-    // O método setAtivo foi removido pois a coluna 'ativo' não existe no banco
 }

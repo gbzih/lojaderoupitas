@@ -19,8 +19,7 @@ require_once __DIR__ . '/../views/produtos.php';
 public function salvar(): void
 {
     $this->check();
-    // $this->onlyAdmin(); // 👈 Deixe comentado para o Vendedor conseguir salvar também!
-    
+    // $this->onlyAdmin();
     $id = (int)($_POST['id'] ?? 0);
     $categoriaId = (int)($_POST['categoria_id'] ?? 0);
     $nome = trim($_POST['nome'] ?? '');

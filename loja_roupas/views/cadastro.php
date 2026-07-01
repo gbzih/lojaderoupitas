@@ -18,28 +18,28 @@
     <form action="index.php?controller=usuario&action=store" method="POST">
 
       <div>
-        <label for="nome">Nome:</label>
+        <label style="color: black;" for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>
       </div>
 
       <br>
 
       <div>
-        <label for="email">E-mail:</label>
+        <label style="color: black;" for="email">E-mail:</label>
         <input type="email" id="email" name="email" required>
       </div>
 
       <br>
 
       <div>
-        <label for="senha">Senha:</label>
+        <label style="color: black;" for="senha">Senha:</label>
         <input type="password" id="senha" name="senha" required>
       </div>
 
       <br>
-      <div class="actions-login">
-        <button type="submit" class="btn">Cadastrar</button>
-        <a href="/loja_roupas/index.php?controller=auth&action=form" class="btn btn-secondary">Voltar</a>
+      <div style="color: black;" class="actions-login">
+        <button style="color: black;" type="submit" class="btn">Cadastrar</button>
+        <a style="color: black;" href="/loja_roupas/index.php?controller=auth&action=form" class="btn">Voltar</a>
       </div>
 
     </form>

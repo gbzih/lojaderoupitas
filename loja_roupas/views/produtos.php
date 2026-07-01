@@ -1,5 +1,5 @@
 <?php
-// helper simples para resolver imagem por ID sem usar banco
+// helper simples
 function imagemProdutoUrl(int $produtoId): string
 {
     $baseFs = __DIR__ . "/../public/uploads/produtos/";
@@ -19,7 +19,7 @@ function imagemProdutoUrl(int $produtoId): string
     <title>Produtos</title>
     <link rel="stylesheet" href="public/assets/css/style.css">
 </head>
-<body>
+<body class="pagina-produtos">
 <div class="header">
     <div class="container header-inner">
         <div class="cabecaproduto">
@@ -40,7 +40,7 @@ function imagemProdutoUrl(int $produtoId): string
             <input type="hidden" name="id" value="<?= $editar ? (int)$editar['id_produto'] : 0 ?>">
             
             <div class="form-group">
-                <label>Categoria</label>
+                <label style="color: black;">Categoria</label>
                 <select class="input" name="categoria_id" required>
                     <option value="">Selecione...</option>
                     <?php foreach ($categorias as $c): ?>
@@ -53,30 +53,30 @@ function imagemProdutoUrl(int $produtoId): string
             </div>
             
             <div class="form-group">
-                <label>Nome</label>
+                <label style="color: black;">Nome</label>
                 <input class="input" type="text" name="nome" required
                        value="<?= $editar ? htmlspecialchars($editar['nome']) : '' ?>">
             </div>
             
             <div class="form-group">
-                <label>Descrição (opcional)</label>
+                <label style="color: black;">Descrição (opcional)</label>
                 <textarea class="input" name="descricao" rows="3"><?= $editar ? htmlspecialchars($editar['descricao'] ?? '') : '' ?></textarea>
             </div>
 
             <div class="form-group">
-                <label>Preço (R$)</label>
+                <label style="color: black;">Preço (R$)</label>
                 <input class="input" type="number" step="0.01" name="preco" required
                        value="<?= $editar ? (float)$editar['preco'] : '0.00' ?>">
             </div>
 
             <div class="form-group">
-                <label>Quantidade em Estoque</label>
+                <label style="color: black;">Quantidade em Estoque</label>
                 <input class="input" type="number" name="estoque" required
                        value="<?= $editar ? (int)$editar['estoque'] : '0' ?>">
             </div>
 
             <div class="form-group">
-                <label>Imagem do produto (opcional)</label>
+                <label style="color: black;">Imagem do produto (opcional)</label>
                 <input class="input" type="file" name="imagem" accept="image/png, image/jpeg, image/webp">
                 <small class="muted" style="display: block; margin-bottom: 5px;">Formatos: JPG, PNG, WEBP (até 2MB). Salva como ID do produto.</small>
                 
@@ -107,8 +107,8 @@ function imagemProdutoUrl(int $produtoId): string
             </div>
             
             <div class="actions">
-                <button class="btn btn-primary" type="submit">Salvar</button>
-                <a class="btn" href="index.php?controller=produto&action=index">Limpar</a>
+                <button style="color: black;" class="btn btn-primary" type="submit">Salvar</button>
+                <a style="color: black;" class="btn" href="index.php?controller=produto&action=index">Limpar</a>
             </div>
         </form>
     </div>
@@ -118,14 +118,14 @@ function imagemProdutoUrl(int $produtoId): string
         <table class="table">
             <thead>
                 <tr>
-                    <th>Imagem</th>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Categoria</th>
-                    <th>Preço</th>
-                    <th>Estoque</th>
-                    <th>Status</th>
-                    <th style="width:220px;">Ações</th>
+                    <th style="color: black;">Imagem</th>
+                    <th style="color: black;">ID</th>
+                    <th style="color: black;">Nome</th>
+                    <th style="color: black;">Categoria</th>
+                    <th style="color: black;">Preço</th>
+                    <th style="color: black;">Estoque</th>
+                    <th style="color: black;">Status</th>
+                    <th style="width:220px; color: black;">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -138,34 +138,34 @@ function imagemProdutoUrl(int $produtoId): string
                         <img class="thumb" src="<?= imagemProdutoUrl((int)$p['id_produto']) ?>" alt="produto">
                     </td>
                     
-                    <td>#<?= $posicao ?></td>
+                    <td style="color: black;">#<?= $posicao ?></td>
                     
-                    <td><?= htmlspecialchars($p['nome']) ?></td>
+                    <td style="color: black;"><?= htmlspecialchars($p['nome']) ?></td>
                     
-                    <td><?= htmlspecialchars($p['categoria_nome']) ?></td>
+                    <td style="color: black;"><?= htmlspecialchars($p['categoria_nome']) ?></td>
                     
-                    <td>R$ <?= number_format((float)($p['preco'] ?? 0), 2, ',', '.') ?></td>
+                    <td style="color: black;">R$ <?= number_format((float)($p['preco'] ?? 0), 2, ',', '.') ?></td>
                     
-                    <td><?= (int)($p['estoque'] ?? 0) ?> un</td>
+                    <td style="color: black;"><?= (int)($p['estoque'] ?? 0) ?> un</td>
                     
                     <td>
                         <?php if (isset($p['ativo']) && (int)$p['ativo'] === 1): ?>
-                            <span class="tag ok">Ativo</span>
+                            <span style="color: black;" class="tag ok">Ativo</span>
                         <?php else: ?>
-                            <span class="tag off">Inativo</span>
+                            <span style="color: black;" class="tag off">Inativo</span>
                         <?php endif; ?>
                     </td>
                     
                     <td>
                         <div style="display: flex; flex-direction: column; gap: 4px;">
-                            <a class="btn" href="index.php?controller=produto&action=index&id=<?= (int)$p['id_produto'] ?>">Editar</a>
+                            <a style="color: black;" class="btn" href="index.php?controller=produto&action=index&id=<?= (int)$p['id_produto'] ?>">Editar</a>
                             
                             <?php if (isset($p['ativo']) && (int)$p['ativo'] === 1): ?>
-                                <a class="btn btn-danger"
+                                <a style="color: black;" class="btn btn-danger"
                                    href="index.php?controller=produto&action=toggle&id=<?= (int)$p['id_produto'] ?>&ativo=0"
                                    onclick="return confirm('Inativar este produto?')">Inativar</a>
                             <?php else: ?>
-                                <a class="btn btn-success"
+                                <a style="color: black;" class="btn btn-success"
                                    href="index.php?controller=produto&action=toggle&id=<?= (int)$p['id_produto'] ?>&ativo=1">Ativar</a>
                             <?php endif; ?>
                             
