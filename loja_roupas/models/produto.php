@@ -38,7 +38,6 @@ class Produto
 
     public function inserir(int $categoriaId, string $nome, ?string $descricao, float $preco, int $estoque): int
     {
-        // Adicionado preco e estoque na Query
         $stmt = $this->conn->prepare("
             INSERT INTO produto (categoria_id, nome, descricao, preco, estoque, ativo)
             VALUES (:categoria_id, :nome, :descricao, :preco, :estoque, 1)
@@ -55,7 +54,6 @@ class Produto
 
     public function atualizar(int $id, int $categoriaId, string $nome, ?string $descricao, float $preco, int $estoque): void
     {
-        // Adicionado preco e estoque no SET do UPDATE
         $stmt = $this->conn->prepare("
             UPDATE produto
             SET categoria_id = :categoria_id, nome = :nome, descricao = :descricao, preco = :preco, estoque = :estoque

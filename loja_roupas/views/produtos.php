@@ -27,8 +27,12 @@ function imagemProdutoUrl(int $produtoId): string
             <span class="badge">Produtos</span>
         </div>
         <div class="user">
-    Olá, <strong><?= htmlspecialchars($_SESSION['usuario_nome'] ?? 'Usuário') ?></strong>
-    <a href="index.php?controller=auth&action=logout">Sair</a>
+   <span style="color: black;">Olá,</span> <strong><?= htmlspecialchars($_SESSION['usuario_nome'] ?? 'Usuário') ?></strong>
+    <span style="margin: 8px;">|</span>
+    <a href="index.php?controller=auth&action=dashboard" style="margin-right: 8px; color: black;">Inicio</a>
+    <span style="margin: 4px;">•</span>
+    <a href="index.php?controller=auth&action=logout" style="color: black;">Sair</a>
+</div>
 </div>
     </div>
 </div>
@@ -95,11 +99,11 @@ function imagemProdutoUrl(int $produtoId): string
                     
                     <?php if ($temImagem): ?>
                         <div style="margin-top: 12px; margin-bottom: 5px;">
-                            <a class="btn" 
-                               style="color: #ff4d4d; border: 1px solid rgba(255, 77, 77, 0.4); background: rgba(255, 77, 77, 0.1); width: 100%; display: inline-flex; justify-content: center; align-items: center; box-sizing: border-box;" 
+                            <a class="btn3" 
+                               style="color: #ff4d4d; width: 100%; display: inline-flex; justify-content: center; align-items: center; box-sizing: border-box;" 
                                href="index.php?controller=produto&action=removerImagem&id=<?= $editar['id_produto'] ?>"
                                onclick="return confirm('Tem certeza que deseja apagar a imagem deste produto?');">
-                               🗑️ Deletar Imagem Atual
+                               Deletar Imagem Atual
                             </a>
                         </div>
                     <?php endif; ?>

@@ -8,7 +8,7 @@ try {
     $resultado = $stmt->fetch();
     $totalProdutos = $resultado['total'] ?? 0;
 } catch (Exception $e) {
-    $totalProdutos = 0; //ele via exibir 0 por seguranca
+    $totalProdutos = 0;
 }
 ?>
 <!doctype html>
@@ -26,11 +26,11 @@ try {
 <div class="brand">
 <div class="abelha">
 <h1>Loja Nerdis</h1>
-<small>Painel do Sistema</small>
+<small style="color: black;">Painel do Sistema</small>
 </div>
 </div>
 <div style="color: black;" class="pill">
-Logado como <strong style="color: purple;"><?= htmlspecialchars($_SESSION['usuario_nome'] ?? 'Usuário') ?></strong>
+Logado como: <strong style="color: purple;"><?= htmlspecialchars($_SESSION['usuario_nome'] ?? 'Usuário') ?></strong>
 (<?php echo htmlspecialchars($perfil); ?>)
 • <a style="color: black;" href="/loja_roupas/index.php?controller=auth&action=logout">Sair</a>
 </div>

@@ -63,10 +63,8 @@ public function deletar(): void
 
     if (!$produto) die("Produto não encontrado.");
 
-    // Deleta a imagem do arquivo
     $this->deletarImagemDoProduto($id);
 
-    // Deleta do banco
     $produtoModel->deletar($id);
 
     header("Location: index.php?controller=produto&action=index");
@@ -76,7 +74,6 @@ public function toggle(): void
 {
     $this->check(); 
     
-    // Pegando os dados via GET que vêm do link da tabela
     $id = (int)($_GET['id'] ?? 0);
     $ativo = (int)($_GET['ativo'] ?? 1);
 
@@ -95,11 +92,9 @@ public function removerImagem(): void
     
     $id = (int)($_GET['id'] ?? 0);
     if ($id > 0) {
-        // Usa o método privado que você já tem para apagar o arquivo da pasta
         $this->deletarImagemDoProduto($id);
     }
     
-    // Redireciona de volta abrindo o mesmo produto em modo de edição
     header("Location: index.php?controller=produto&action=index&id=" . $id);
     exit;
 }
@@ -111,9 +106,9 @@ private function salvarImagemDoProduto(int $produtoId): void
 if (!isset($_FILES['imagem']) || $_FILES['imagem']['error'] !== UPLOAD_ERR_OK) {
 return; // sem imagem
 }
-// limita tamanho (2MB)
+
 if (($_FILES['imagem']['size'] ?? 0) > 2 * 1024 * 1024) {
-return; // em produção: mostrar mensagem
+return;
 }
 $tmp = $_FILES['imagem']['tmp_name'];
 $mime = mime_content_type($tmp);

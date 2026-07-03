@@ -1,5 +1,5 @@
 <?php
-// 1. Inclui o seu arquivo de conexão (ajuste o nome se for diferente)
+
 require_once 'config/db.php';
 
 try {

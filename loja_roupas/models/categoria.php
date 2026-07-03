@@ -12,7 +12,7 @@ class Categoria
 
     public function listarTodas(): array
     {
-        // Removido 'ativo' do SELECT
+
         $sql = "SELECT id_categoria, nome FROM categoria ORDER BY nome";
         return $this->conn->query($sql)->fetchAll();
     }
@@ -25,7 +25,7 @@ class Categoria
 
     public function buscarPorId(int $id): ?array
     {
-        // Removido 'ativo' do SELECT
+    
         $stmt = $this->conn->prepare("SELECT id_categoria, nome FROM categoria WHERE id_categoria = :id");
         $stmt->execute([':id' => $id]);
         $r = $stmt->fetch();
@@ -34,7 +34,6 @@ class Categoria
 
     public function inserir(string $nome): int
     {
-        // Removido 'ativo' do INSERT
         $stmt = $this->conn->prepare("
             INSERT INTO categoria (nome)
             VALUES (:nome)

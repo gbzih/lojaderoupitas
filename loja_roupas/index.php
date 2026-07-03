@@ -4,12 +4,10 @@ require_once __DIR__ . '/config/db.php';
 Database::getConnection();
 
 
-// roteamento simples via GET
 $controller = $_GET['controller'] ?? 'auth';
 $action = $_GET['action'] ?? 'form';
 
 
-// Carregar controller
 switch ($controller) {
     case 'auth':
         require_once __DIR__ . '/controllers/AuthController.php';
@@ -17,13 +15,13 @@ switch ($controller) {
         break;
 
 
-    // CRUD PRODUTOS E VENDAS
+    // CRUD SOMENTE PRODUTO POR ENQ
     case 'produto':
         require_once __DIR__ . '/controllers/ProdutoController.php';
         $c = new ProdutoController();
         break;
 
-
+    //ainda nao foi apresentado
     case 'entrada':
         require_once __DIR__ . '/controllers/EntradaController.php';
         $c = new EntradaController();
@@ -51,13 +49,11 @@ switch ($controller) {
         break;
 
 
-    // Caminho padrão caso o controller não exista
     default:
         die("Controller inválido.");
 }
 
 
-// Executar ação
 if (!method_exists($c, $action)) {
     die("Ação inválida.");
 }

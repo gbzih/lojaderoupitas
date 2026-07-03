@@ -11,7 +11,6 @@ body{
     position:relative;
 }
 
-/* Fundo blurado */
 body::before{
      content:"";
     position:fixed;
@@ -60,17 +59,6 @@ a{
 }
 
 .card{
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  border:1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  box-shadow:var(--shadow);
-  padding:20px;
-}
-
-.card{
   background: rgba(192, 187, 187, 0.534);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -80,6 +68,7 @@ a{
   box-shadow:var(--shadow);
   padding:20px;
 }
+
 input{
   width:100%;
   padding:14px;
@@ -112,7 +101,7 @@ input{
   margin-top:2px;
   color:var(--muted);
 }
-/* Estilos específicos para a página de Cadastro de Vendedor */
+
 .cop {
     min-height: 70vh;
     display: flex;
@@ -121,11 +110,10 @@ input{
     padding: 20px 0;
 }
 
-/* Limita a largura máxima do card na página de cadastro */
 .cop > .card {
     width: 100%;
     max-width: 590px;
-    overflow: visible; /* Garante que os inputs arredondados renderizem bem */
+    overflow: visible;
 }
 
 
@@ -184,12 +172,11 @@ label{
 .actions-login {
     margin-top: 16px;
     display: flex;
-    justify-content: flex-end; /* Padrão do login atual */
+    justify-content: flex-end;
     gap: 15px; 
     align-items: center;
 }
 
-/* 🌟 Nova subclasse para reaproveitar no cadastro e centralizar */
 .actions-login.center {
     justify-content: center;
 }
@@ -205,7 +192,7 @@ label{
   background-color: white;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 
-  /* 🌟 Garante que o <button> e o <a> fiquem IGUAIS em tamanho e fonte */
+
   font-family: inherit; 
   font-size: 13px;      
   font-weight: 700;     
@@ -228,6 +215,24 @@ label{
   
 }
 
+.btn3{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 18px;
+  border-radius: 14px;
+  border: 0;
+  cursor: pointer;
+  color: rgb(75, 7, 107);
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+
+
+  font-family: inherit; 
+  font-size: 13px;      
+  font-weight: 700;
+
+}
  .btn:hover{
   filter:brightness(1.05);
 }
@@ -267,14 +272,18 @@ label{
   grid-template-columns:repeat(4, 1fr);
   gap:14px;
   margin-top:18px;
+  
 }
 
  .kpi{
-  padding:16px;
-  border-radius:var(--radius);
-  background: rgba(216, 216, 216, 0.534);
+  background: rgba(192, 187, 187, 0.534);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+
+  border:1px solid rgba(0, 0, 0, 0.534);
+  border-radius: 20px;
+  box-shadow:var(--shadow);
+  padding:20px;
 }
 
  .kpi .label{
@@ -323,39 +332,35 @@ label{
 .badge { margin-left: 8px; padding: 4px 10px; border-radius: 999px;}
 
 
-/* Ajuste para telas internas */
 body {
-  display: block !important;
-  justify-content: initial !important;
-  align-items: initial !important;
-  overflow-x: hidden !important;
-  overflow-y: auto !important;
+  display: block;
+  justify-content: initial;
+  align-items: initial;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .header .container {
-  padding: 18px 0 !important;
+  padding: 18px 0;
 }
 
-/* 1. Força os dois cards a terem exatamente a mesma altura */
 .container.grid {
-  width: min(1320px, 96vw) !important;
-  padding: 36px 0 !important;
-  grid-template-columns: minmax(320px, 420px) minmax(0, 1fr) !important;
-  align-items: stretch !important; /* 🌟 Faz o card da lista esticar e igualar com o cadastro */
+  width: min(1320px, 96vw);
+  padding: 36px 0;
+  grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
+  align-items: stretch;
 }
 
-/* 2. Controla o tamanho máximo e a rolagem interna da lista de produtos */
 .container.grid > .card:last-child {
-  height: 650px; /* Altura exata para casar e travar o tamanho junto com o cadastro */
+  height: 650px;
   display: flex;
   flex-direction: column;
 }
 
-/* 3. Faz a tabela rolar perfeitamente por dentro sem quebrar o card de fora */
 .container.grid > .card:last-child > .table {
   flex: 1;
   overflow-y: auto;
-  display: block; /* Permite que o bloco da tabela use a rolagem interna */
+  display: block;
 }
 
 .table {
@@ -390,6 +395,6 @@ body {
 
 @media (max-width: 900px) {
   .container.grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
   }
 }
