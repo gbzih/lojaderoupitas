@@ -33,7 +33,6 @@ class UsuarioController
 
 
         if ($sucesso) {
-            // Se deu certo, manda de volta para o login ou dashboard
             header("Location: index.php?controller=auth&action=form");
             exit;
         } else {

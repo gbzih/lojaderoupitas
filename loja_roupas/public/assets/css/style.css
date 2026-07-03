@@ -1,13 +1,13 @@
 body{
     margin:0;
     min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
+    display:block;
+    justify-content:initial;
+    align-items:initial;
+    overflow-x:hidden;
+    overflow-y: auto ;
     font-family:Arial, sans-serif;
-    color: rgb(75, 7, 107);
-
+    color: rgb(75, 7, 107);display: block;
     position:relative;
 }
 
@@ -41,7 +41,6 @@ body.bodydash::before{
    LINKS
    =============================== */
 a{
-  color:var(--neon2);
   text-decoration:none;
 }
 
@@ -67,6 +66,7 @@ a{
   border-radius: 20px;
   box-shadow:var(--shadow);
   padding:20px;
+  overflow: auto;
 }
 
 input{
@@ -319,7 +319,7 @@ label{
   }
 } 
 
-.table { width:100%; border-collapse: collapse; }
+.table { width:100%; min-width: 760px; border-collapse: collapse; }
 .table th, .table td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,.12); vertical-align: middle; }
 .thumb { width:56px; height:56px; object-fit: cover; border-radius: 10px; border: 1px solid rgba(255,255,255,.18); }
 .tag { padding: 4px 10px; border-radius: 999px; font-size: 12px; display: inline-block; }
@@ -331,14 +331,6 @@ label{
 .header-inner { display:flex; justify-content: space-between; align-items:center; }
 .badge { margin-left: 8px; padding: 4px 10px; border-radius: 999px;}
 
-
-body {
-  display: block;
-  justify-content: initial;
-  align-items: initial;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
 
 .header .container {
   padding: 18px 0;
@@ -361,14 +353,6 @@ body {
   flex: 1;
   overflow-y: auto;
   display: block;
-}
-
-.table {
-  min-width: 760px;
-}
-
-.card {
-  overflow: auto;
 }
 
 .actions {
