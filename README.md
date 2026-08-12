@@ -1,4 +1,4 @@
-Loja Nerdis - Sistema de Gerenciamento de Produtos
+Loja Geekis - Sistema de Gerenciamento de Produtos
 
 Um sistema web para o gerenciamento de inventário e controle de acesso de uma loja, desenvolvido em PHP.
 ---
