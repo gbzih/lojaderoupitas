@@ -1,14 +1,14 @@
-Loja Geekies - Sistema de Gerenciamento de Produtos
+Loja Geekies - Sistema de Gerenciamento e venda de quadrinhos.
 
-Um sistema web para o gerenciamento de inventário e controle de acesso de uma loja, desenvolvido em PHP.
+Um sistema web para o gerenciamento de inventário e controle de acesso de uma loja virtual, desenvolvido em PHP.
 ---
 
 ## Funcionalidades:
 
 ### Autenticação & Níveis de Acesso
-- **Administrador (admin):** Possui controle total do sistema. Pode cadastrar, editar, ativar/inativar e **excluir** produtos, além de gerenciar categorias e mídias.
+- **Administrador (admin):** Possui controle total do sistema de estoque. Pode cadastrar, editar, ativar/inativar e **excluir** produtos, além de gerenciar categorias e mídias.
 
-- **Vendedor (vendedor):** Tem limite limitado. Pode visualizar a lista de itens, cadastrar novos produtos e editar informações caso errar algo, mas possui restrição de segurança para **não excluir** dados do sistema.
+- **Cliente (vendedor):** Pode comprar, pesquisar e efetuar pagamento dentro da loja virtual.
 
 ### Gestão de Produtos
 - Operações de CRUD.
