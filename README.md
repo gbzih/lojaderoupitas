@@ -1,25 +1,39 @@
-Loja Geekies - Sistema de Gerenciamento e venda de quadrinhos.
+# Portal Geekies/Loja Geekies
 
-Um sistema web para o gerenciamento de inventário e controle de acesso de uma loja virtual, desenvolvido em PHP.
----
+Sistema web desenvolvido para gerenciamento de e-commerce e controle de inventário voltado para o universo geek (quadrinhos, mangás, HQS, etc).
 
-## Funcionalidades:
+-----------------------------------------------------------------------------------------------------------------------------------------------
 
-### Autenticação & Níveis de Acesso
-- **Administrador (admin):** Possui controle total do sistema de estoque. Pode cadastrar, editar, ativar/inativar e **excluir** produtos, além de gerenciar categorias e mídias.
+## Funcionalidades
 
-- **Cliente (vendedor):** Pode comprar, pesquisar e efetuar pagamento dentro da loja virtual.
+### - Autenticação & Perfis
+- **Administrador:** Controle total do sistema. Gerencia o catálogo (produtos e categorias), monitora o estoque, registra entradas de mercadorias e administra os usuários cadastrados.
+- **Cliente:** Navega pelo catálogo, busca por itens, gerencia o carrinho de compras, realiza pedidos e efetua o pagamento de forma integrada.
 
-### Gestão de Produtos
-- Operações de CRUD.
-- Controle dinâmico de Status (**Ativo/Inativo**).
-- Preco e quantidade de itens em estoque.
-- Upload de fotos dos produtos em: jpg, png, webp.
-  
----
+### - Gestão de Catálogo & Estoque
+- Operações de CRUD completas para produtos e categorias.
+- Controle dinâmico de status (**Ativo/Inativo**).
+- Gestão de estoque com monitoramento de quantidade e baixa automática após a confirmação das vendas.
 
-## Programas e tecnologias utilizados
+### - Fluxo de E-commerce
+- Adição e remoção de itens no carrinho virtual.
+- Conversão de itens do carrinho em pedido oficial de compra.
+- Registro de pagamentos e consulta de histórico de pedidos.
 
-* **Backend:** PHP
-* **Banco de Dados:** MySQL, HeidiSQL
-* **Frontend:** HTML, CSS
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+## - Tecnologias Utilizadas
+
+- **Backend:** PHP
+- **Banco de Dados:** MySQL (utilizando HeidiSQL para gerenciamento)
+- **Frontend:** HTML5, CSS
+- **Modelagem:** DER, Diagrama Lógico e Diagramas de Classes (UML)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+## - Como Executar
+
+1. Clone ou baixe os arquivos do projeto para o seu diretório de servidor local (como o `htdocs` do XAMPP).
+2. Abra o **HeidiSQL** (ou phpMyAdmin), crie um banco de dados chamado `loja_geekies` e importe o script para dentro.
+3. Ajuste as credenciais de conexão com o banco de dados no arquivo de configuração do PHP (caso necessário).
+4. Inicie o Apache/MySQL no seu servidor local e acesse o projeto pelo navegador.
