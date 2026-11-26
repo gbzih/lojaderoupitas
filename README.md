@@ -1,21 +1,21 @@
 # Portal Geekies/Loja Geekies
 
-Sistema web desenvolvido para gerenciamento de e-commerce e controle de inventário voltado para o universo geek (quadrinhos, mangás, HQS, etc).
+Sistema web desenvolvido para gerenciamento de loja virtual e controle de inventário voltado para o universo geek (quadrinhos, mangás, HQS, livros, lightnovels, etc).
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Funcionalidades
 
-### - Autenticação & Perfis
-- **Administrador:** Controle total do sistema. Gerencia o catálogo (produtos e categorias), monitora o estoque, registra entradas de mercadorias e administra os usuários cadastrados.
-- **Cliente:** Navega pelo catálogo, busca por itens, gerencia o carrinho de compras, realiza pedidos e efetua o pagamento de forma integrada.
+- ## Autenticação & Perfis
+- ## Administrador: Controle total do sistema. Gerencia o catálogo (produtos e categorias), monitora o estoque, registra entradas de mercadorias e administra os usuários cadastrados.
+- ## Cliente: Navega pelo catálogo, busca por itens, gerencia o carrinho de compras, realiza pedidos e efetua o pagamento de forma integrada.
 
-### - Gestão de Catálogo & Estoque
+- ## Gestão de Catálogo & Estoque
 - Operações de CRUD completas para produtos e categorias.
 - Controle dinâmico de status (**Ativo/Inativo**).
 - Gestão de estoque com monitoramento de quantidade e baixa automática após a confirmação das vendas.
 
-### - Fluxo de E-commerce
+- ## Fluxo da Loja Virtual
 - Adição e remoção de itens no carrinho virtual.
 - Conversão de itens do carrinho em pedido oficial de compra.
 - Registro de pagamentos e consulta de histórico de pedidos.
@@ -24,10 +24,10 @@ Sistema web desenvolvido para gerenciamento de e-commerce e controle de inventá
 
 ## - Tecnologias Utilizadas
 
-- **Backend:** PHP
-- **Banco de Dados:** MySQL (utilizando HeidiSQL para gerenciamento)
-- **Frontend:** HTML5, CSS
-- **Modelagem:** DER, Diagrama Lógico e Diagramas de Classes (UML)
+- ## Backend: PHP.
+- ## Banco de Dados: HeidiSql/Mysql.
+- ## Frontend: HTML, CSS.
+- ## Modelagem: DER, Diagrama Lógico, Diagramas de Classes (UML) e Diagrama de caso de uso.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
