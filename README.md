@@ -25,8 +25,11 @@ Sistema web desenvolvido para gerenciamento de loja virtual e controle de invent
  **Tecnologias Utilizadas**
 
  **Backend**: PHP.
+ 
  **Banco de Dados**: HeidiSql/Mysql.
+ 
  **Frontend**: HTML, CSS.
+ 
  **Modelagem**: DER, Diagrama Lógico, Diagramas de Classes (UML) e Diagrama de caso de uso.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
