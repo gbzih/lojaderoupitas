@@ -31,7 +31,7 @@ Sistema web desenvolvido para gerenciamento de loja virtual e controle de invent
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
-- **Como Executar**
+**Como Executar**
 
 1. Clone ou baixe os arquivos do projeto para o seu diretório de servidor local (como o `htdocs` do XAMPP).
 2. Abra o **HeidiSQL** (ou phpMyAdmin), crie um banco de dados chamado `loja_geekies` e importe o script para dentro.
