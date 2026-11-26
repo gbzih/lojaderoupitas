@@ -6,28 +6,28 @@ Sistema web desenvolvido para gerenciamento de loja virtual e controle de invent
 
 **Funcionalidades**
 
-- **Autenticação & Perfis**
-- **Administrador**: Controle total do sistema. Gerencia o catálogo (produtos e categorias), monitora o estoque, registra entradas de mercadorias e administra os usuários cadastrados.
-- **Cliente**: Navega pelo catálogo, busca por itens, gerencia o carrinho de compras, realiza pedidos e efetua o pagamento de forma integrada.
+ **Autenticação & Perfis**
+ **Administrador**: Controle total do sistema. Gerencia o catálogo (produtos e categorias), monitora o estoque, registra entradas de mercadorias e administra os usuários cadastrados.
+ **Cliente**: Navega pelo catálogo, busca por itens, gerencia o carrinho de compras, realiza pedidos e efetua o pagamento de forma integrada.
 
-- **Gestão de Catálogo & Estoque**
-- Operações de CRUD completas para produtos e categorias.
-- Controle dinâmico de status (**Ativo/Inativo**).
-- Gestão de estoque com monitoramento de quantidade e baixa automática após a confirmação das vendas.
+ **Gestão de Catálogo & Estoque**
+ Operações de CRUD completas para produtos e categorias.
+ Controle dinâmico de status (**Ativo/Inativo**).
+ Gestão de estoque com monitoramento de quantidade e baixa automática após a confirmação das vendas.
 
-- **Fluxo da Loja Virtual**
-- Adição e remoção de itens no carrinho virtual.
-- Conversão de itens do carrinho em pedido oficial de compra.
-- Registro de pagamentos e consulta de histórico de pedidos.
+ **Fluxo da Loja Virtual**
+ Adição e remoção de itens no carrinho virtual.
+ Conversão de itens do carrinho em pedido oficial de compra.
+ Registro de pagamentos e consulta de histórico de pedidos.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
- - **Tecnologias Utilizadas**
+ **Tecnologias Utilizadas**
 
-- **Backend**: PHP.
-- **Banco de Dados**: HeidiSql/Mysql.
-- **Frontend**: HTML, CSS.
-- **Modelagem**: DER, Diagrama Lógico, Diagramas de Classes (UML) e Diagrama de caso de uso.
+ **Backend**: PHP.
+ **Banco de Dados**: HeidiSql/Mysql.
+ **Frontend**: HTML, CSS.
+ **Modelagem**: DER, Diagrama Lógico, Diagramas de Classes (UML) e Diagrama de caso de uso.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
